@@ -1,9 +1,12 @@
 
 const TelegramBot = require("node-telegram-bot-api");
 const fetch = require("node-fetch");
+const fs = require("fs");
+const path = require("path");
 
-const token = '';
+const token = JSON.parse(fs.readFileSync(path.join(__dirname, "conf.json"))).telegramkey;
 const bot = new TelegramBot(token, { polling: true });
+console.log(token);
 
 bot.on("message", async (msg) => {
     const chatId = msg.chat.id;
@@ -30,7 +33,7 @@ bot.on("message", async (msg) => {
         return;
     }
 
-    // bot.sendMessage(chatId, `Hai inserito:\n Località: ${localita}\n Data: ${data}`);
+   
 
     const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(localita)}&count=1&language=it&format=json`;
 
