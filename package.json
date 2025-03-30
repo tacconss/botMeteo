@@ -15,5 +15,10 @@
     "url": "https://github.com/tacconss/botMeteo/issues"
   },
   "homepage": "https://github.com/tacconss/botMeteo#readme",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "node-geocoder": "^4.4.1",
+    "node-telegram-bot-api": "^0.66.0"
+  },
   "description": ""
 }
